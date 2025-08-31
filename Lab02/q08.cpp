@@ -40,4 +40,10 @@ int main() {
     }
     cout << "Hotest Day: Day "<<hindex +1<<endl;
     cout << "Coldest Day: Day "<<cindex +1<<endl;
+
+    for (int i =0; i <numDays; i++) {
+        delete []temperature [i];
+    }
+    delete []temperature;
+    delete []timeInDay;
 }
