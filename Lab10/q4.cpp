@@ -25,7 +25,9 @@ void maxHeapify(int *arr, int n, int i) {
         largest = right;
 
     if (largest != i) {
-        swap(arr[i], arr[largest]);
+        int temp = arr[i];
+        arr[i] = arr[largest];
+        arr[largest] = temp;
         maxHeapify(arr, n, largest);
     }
 }
