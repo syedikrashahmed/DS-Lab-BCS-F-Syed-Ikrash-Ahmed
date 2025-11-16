@@ -1,0 +1,55 @@
+/*Task#4: Given an array representation of min Heap, convert it to max Heap.
+Examples:
+Input: arr[] = {3, 5, 9, 6, 8, 20, 10, 12, 18, 9}
+         3
+      /     \
+     5       9
+    / \     / \
+  6   8 20 10
+ / \ /
+12 18 9
+Output: arr[] = {20, 18, 10, 12, 9, 9, 3, 5, 6, 8}*/
+
+#include <iostream>
+using namespace std;
+
+void maxHeapify(int *arr, int n, int i) {
+    int largest = i;
+    int left = 2*i + 1;
+    int right = 2*i + 2;
+
+    if (left < n && arr[left] > arr[largest])
+        largest = left;
+
+    if (right < n && arr[right] > arr[largest])
+        largest = right;
+
+    if (largest != i) {
+        swap(arr[i], arr[largest]);
+        maxHeapify(arr, n, largest);
+    }
+}
+
+void convertToMaxHeap(int *arr, int n) {
+    for (int i = n/2 - 1; i >= 0; i--)
+        maxHeapify(arr, n, i);
+}
+
+int main() {
+    int n = 10;
+    int arr[10] = {3, 5, 9, 6, 8, 20, 10, 12, 18, 9};
+
+	cout << "Min Heap: ";
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl << endl; 
+
+    convertToMaxHeap(arr, n);
+
+    cout << "Max Heap: ";
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
