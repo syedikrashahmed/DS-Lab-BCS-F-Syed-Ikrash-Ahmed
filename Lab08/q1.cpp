@@ -122,7 +122,8 @@ int main() {
  cout<< endl;
  if (search(root, 9)) {
      cout << "FOUND" << endl;
- } else {
+ } 
+ else {
      cout << "NOT FOUND" << endl;
  }
  Node* newRoot = deleteNode(root, 5);
