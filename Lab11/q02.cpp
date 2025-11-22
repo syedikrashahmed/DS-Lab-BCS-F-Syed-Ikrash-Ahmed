@@ -34,7 +34,7 @@ public:
         }
     }
     
-    void addEntry(string id, string val) {
+    void Add_Record(string id, string val) {
         int tableIndex = getHashIndex(id);
         HashNode* newNode = new HashNode(id, val);
         
@@ -42,7 +42,7 @@ public:
         hashTable[tableIndex] = newNode;
     }
     
-    void findKey(string id) {
+    void Word_Search(string id) {
         int tableIndex = getHashIndex(id);
         HashNode* currentNode = hashTable[tableIndex];
         
@@ -78,7 +78,7 @@ public:
         cout << "Key " << id << " not found for deletion!" << endl;
     }
     
-    void showBucket(int bucketIndex) {
+    void Print_Dictionary(int bucketIndex) {
         if (bucketIndex < 0 || bucketIndex >= 100) {
             cout << "Invalid bucket index!" << endl;
             return;
@@ -117,11 +117,11 @@ public:
 
 int main() {
     DictionaryHash myDict;
-    myDict.addEntry("AB", "FASTNU");
-    myDict.addEntry("CD", "CS");
-    myDict.addEntry("EF", "ikrash");
-    myDict.findKey("AB");
+    myDict.Add_Record("AB", "FASTNU");
+    myDict.Add_Record("CD", "CS");
+    myDict.Add_Record("EF", "ikrash");
+    myDict.Word_Search("AB");
     myDict.removeKey("EF");
-    myDict.showBucket(31);
-    myDict.showBucket(35);
+    myDict.Print_Dictionary(31);
+    myDict.Print_Dictionary(35);
 }
