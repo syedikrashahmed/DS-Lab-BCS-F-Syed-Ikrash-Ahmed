@@ -37,6 +37,16 @@ public:
     void Add_Record(string id, string val) {
         int tableIndex = getHashIndex(id);
         HashNode* newNode = new HashNode(id, val);
+
+        HashNode* temp = hashTable[tableIndex];
+         while (temp != nullptr) {  
+            if (temp->identifier == id) {
+                cout << "Key " << id << " already exists. Updating value." << endl;
+                temp->data = val;
+                return;
+            }
+            temp = temp->nextNode;
+        }
         
         newNode->nextNode = hashTable[tableIndex];
         hashTable[tableIndex] = newNode;
